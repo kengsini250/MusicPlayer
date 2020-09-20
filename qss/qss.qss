@@ -1,0 +1,113 @@
+QMenuBar{
+background-color:rgba(220, 118, 51, 0.3);
+}
+QMenu{
+background-color:rgba(213, 245, 227, 1);
+}
+QStatusBar{
+background-color:white;
+}
+QPushButton#_Play{
+border-image:url(:/pic/play.png);
+border-radius:10px;
+}
+QPushButton#_Play:pressed{
+border-image:url(:/pic/pause.png);
+border-radius:10px;
+}
+QPushButton#_Pre{
+image:url(:/pic/pre.png);
+border-radius:10px;
+}
+QPushButton#_Pre:pressed{
+image:url(:/pic/preP.png);
+border-radius:10px;
+}
+QPushButton#_Next{
+image:url(:/pic/next.png);
+border-radius:10px;
+}
+QPushButton#_Next:pressed{
+image:url(:/pic/nextP.png);
+border-radius:10px;
+}
+QPushButton#_AddMusic{
+image:url(:/pic/add.png);
+border-radius:10px;
+}
+QPushButton#_AddMusic:pressed{
+image:url(:/pic/addP.png);
+border-radius:10px;
+}
+QPushButton#_DeleteMusic{
+image:url(:/pic/delete.png);
+border-radius:10px;
+}
+QPushButton#_DeleteMusic:pressed{
+image:url(:/pic/deleteP.png);
+border-radius:10px;
+}
+
+QSlider::groove:horizontal {
+border: 0px solid #bbb;
+}
+QSlider::sub-page:horizontal {
+background: rgb(235,97,0);
+border-radius: 0px;
+margin-top:8px;
+margin-bottom:8px;
+}
+QSlider::add-page:horizontal {
+background: rgb(255,255, 255);
+border: 0px solid #777;
+border-radius: 2px;
+margin-top:8px;
+margin-bottom:8px;
+}
+QSlider::handle:horizontal {
+background: rgb(255,153,102);
+border: 1px solid rgb(255,153,102);
+width: 14px;
+height:10px;
+border-radius: 7px;
+margin-top:2px;
+margin-bottom:2px;
+}
+QSlider::handle:horizontal:hover {
+background: rgb(255,128,6);
+border: 1px solid rgba(102,102,102,102);
+border-radius: 7px;
+}
+QSlider::sub-page:horizontal:disabled {
+background: #bbb;
+border-color: #999;
+}
+QSlider::add-page:horizontal:disabled {
+background: #eee;
+border-color: #999;
+}
+QSlider::handle:horizontal:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}
+
+QListView#_AllMusic{
+background-color:rgba(255,255,255,0.7);
+border-radius:10px;
+}
+QListView#_MyList{
+background-color:rgba(255,255,255,0.7);
+border-radius:10px;
+}
+
+QToolBox::tab{
+background-color:pink;
+}
+QWidget#page,#page_2{
+background-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,
+								stop: 0 rgb(46, 134, 193),
+								stop: 1 rgb(237, 187, 153));
+
+border-radius: 20px;
+}
