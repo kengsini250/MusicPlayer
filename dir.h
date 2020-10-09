@@ -10,7 +10,8 @@
 
 #include "musiclist.h"
 
-void openDir(QMainWindow* p,QDir* path);
+void openDir(QWidget* p,QDir* path);
+QDir openDir(QWidget* p);
 void addFolder(QDir* path,QString _path,MusicList* list);
 
 #endif

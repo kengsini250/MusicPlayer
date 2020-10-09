@@ -12,5 +12,8 @@
         <file>pic/delete.png</file>
         <file>pic/deleteP.png</file>
         <file>pic/background.jpg</file>
+        <file>pic/exit.png</file>
+        <file>pic/max.png</file>
+        <file>pic/min.png</file>
     </qresource>
 </RCC>

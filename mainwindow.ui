@@ -1,446 +1,387 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <widget class="QWidget" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1264</width>
-    <height>849</height>
+    <width>1200</width>
+    <height>750</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>700</height>
+    <width>1200</width>
+    <height>750</height>
    </size>
   </property>
   <property name="windowTitle">
-   <string>Music Player v1.5.0</string>
+   <string>Music Player v3.0.0</string>
   </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>:/uiPic/pic/mainIcon.jpg</normaloff>:/uiPic/pic/mainIcon.jpg</iconset>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_3">
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QToolBox" name="toolBox">
-          <property name="minimumSize">
-           <size>
+  <layout class="QVBoxLayout" name="verticalLayout_6">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QToolBox" name="toolBox">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>550</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="baseSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="page">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
             <width>300</width>
-            <height>550</height>
-           </size>
+            <height>592</height>
+           </rect>
           </property>
-          <property name="maximumSize">
-           <size>
-            <width>300</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="baseSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="currentIndex">
-           <number>0</number>
-          </property>
-          <widget class="QWidget" name="page">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>300</width>
-             <height>648</height>
-            </rect>
-           </property>
-           <attribute name="label">
-            <string>Music</string>
-           </attribute>
-           <layout class="QVBoxLayout" name="verticalLayout_4">
-            <item>
-             <widget class="QListView" name="_AllMusic">
-              <property name="minimumSize">
-               <size>
-                <width>250</width>
-                <height>500</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16777215</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="page_2">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>283</width>
-             <height>518</height>
-            </rect>
-           </property>
-           <attribute name="label">
-            <string>List</string>
-           </attribute>
-           <layout class="QVBoxLayout" name="verticalLayout_5">
-            <item>
-             <widget class="QListView" name="_MyList">
-              <property name="minimumSize">
-               <size>
-                <width>250</width>
-                <height>500</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16777215</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </widget>
-        </item>
-        <item>
-         <widget class="QWidget" name="widget" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>68</width>
-            <height>124</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>68</width>
-            <height>124</height>
-           </size>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout">
+          <attribute name="label">
+           <string>Music</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
            <item>
-            <widget class="QPushButton" name="_AddMusic">
+            <widget class="QListView" name="_AllMusic">
              <property name="minimumSize">
               <size>
-               <width>50</width>
-               <height>50</height>
+               <width>250</width>
+               <height>500</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>50</width>
-               <height>50</height>
+               <width>16777215</width>
+               <height>16777215</height>
               </size>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="_DeleteMusic">
-             <property name="minimumSize">
-              <size>
-               <width>50</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="text">
-              <string/>
              </property>
             </widget>
            </item>
           </layout>
          </widget>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
+         <widget class="QWidget" name="page_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>300</width>
+            <height>599</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>List</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <widget class="QListView" name="_MyList">
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>500</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>68</width>
+           <height>124</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>68</width>
+           <height>124</height>
+          </size>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QWidget" name="widget_2" native="true">
+           <widget class="QPushButton" name="_AddMusic">
             <property name="minimumSize">
              <size>
-              <width>500</width>
-              <height>35</height>
+              <width>50</width>
+              <height>50</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
-              <height>35</height>
+              <width>50</width>
+              <height>50</height>
              </size>
             </property>
-            <layout class="QHBoxLayout" name="horizontalLayout">
-             <item>
-              <widget class="QLineEdit" name="addressLineEdit">
-               <property name="minimumSize">
-                <size>
-                 <width>440</width>
-                 <height>25</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>25</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="goPushButton">
-               <property name="minimumSize">
-                <size>
-                 <width>25</width>
-                 <height>25</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>25</width>
-                 <height>25</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>-&gt;</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
+            <property name="text">
+             <string/>
+            </property>
            </widget>
           </item>
           <item>
-           <widget class="QWebEngineView" name="webEngineView">
+           <widget class="QPushButton" name="_DeleteMusic">
             <property name="minimumSize">
              <size>
-              <width>500</width>
-              <height>500</height>
+              <width>50</width>
+              <height>50</height>
              </size>
             </property>
-            <property name="url">
-             <url>
-              <string>about:blank</string>
-             </url>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
             </property>
            </widget>
           </item>
          </layout>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="QSlider" name="slider">
-        <property name="minimumSize">
-         <size>
-          <width>550</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="PlayUI">
-        <item>
-         <widget class="QLabel" name="timeLabel_1">
-          <property name="minimumSize">
-           <size>
-            <width>80</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_5">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Minimum</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>50</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="_Pre">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="_Play">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="_Next">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_10">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Minimum</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>50</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="timeLabel_2">
-          <property name="minimumSize">
-           <size>
-            <width>80</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1264</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuOpen">
-    <property name="title">
-     <string>File</string>
-    </property>
-    <addaction name="actionOpen"/>
-    <addaction name="actionSave"/>
-    <addaction name="actionLoad"/>
-    <addaction name="actionQuit"/>
-   </widget>
-   <widget class="QMenu" name="menuEdit">
-    <property name="title">
-     <string>Edit</string>
-    </property>
-    <addaction name="actionSetting"/>
-   </widget>
-   <addaction name="menuOpen"/>
-   <addaction name="menuEdit"/>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionOpen">
-   <property name="text">
-    <string>Open</string>
-   </property>
-  </action>
-  <action name="actionQuit">
-   <property name="text">
-    <string>Quit</string>
-   </property>
-  </action>
-  <action name="actionSave">
-   <property name="text">
-    <string>Save</string>
-   </property>
-  </action>
-  <action name="actionLoad">
-   <property name="text">
-    <string>Load</string>
-   </property>
-  </action>
-  <action name="actionSetting">
-   <property name="text">
-    <string>Setting</string>
-   </property>
-  </action>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QWidget" name="widget_2" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>500</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>35</height>
+            </size>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QLineEdit" name="addressLineEdit">
+              <property name="minimumSize">
+               <size>
+                <width>440</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>25</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="goPushButton">
+              <property name="minimumSize">
+               <size>
+                <width>25</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>25</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>-&gt;</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWebEngineView" name="webEngineView">
+           <property name="minimumSize">
+            <size>
+             <width>500</width>
+             <height>500</height>
+            </size>
+           </property>
+           <property name="url">
+            <url>
+             <string>about:blank</string>
+            </url>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QSlider" name="slider">
+       <property name="minimumSize">
+        <size>
+         <width>550</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="PlayUI">
+       <item>
+        <widget class="QLabel" name="timeLabel_1">
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Minimum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>50</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="_Pre">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="_Play">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="_Next">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_10">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Minimum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>50</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="timeLabel_2">
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <customwidgets>
   <customwidget>
@@ -450,22 +391,5 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections>
-  <connection>
-   <sender>actionQuit</sender>
-   <signal>triggered()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>299</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

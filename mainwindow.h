@@ -1,7 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include <QWidget>
 #include <QFileDialog>
 #include <QStandardItem>
 #include <QStandardItemModel>
@@ -26,7 +26,7 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
+class MainWindow : public QWidget
 {
     Q_OBJECT
 
@@ -48,20 +48,13 @@ private:
     SaveLoad saveload;
     Setting* setting;
 
-#ifdef MOVE
-    //don't touch !!!
-    bool move = false;
-    int _w=0, _h=0;
-    QPoint oldpos, newpos;
-#endif
-
 protected:
     void paintEvent(QPaintEvent *e);
 
-#ifdef MOVE
-    void mousePressEvent(QMouseEvent* event)override;
-    void mouseMoveEvent(QMouseEvent* event)override;
-    void mouseReleaseEvent(QMouseEvent* event)override;
-#endif
+public slots:
+    void openDir(const QDir& p);
+    void save();
+    void load();
+    void settingDialog();
 };
 #endif // MAINWINDOW_H

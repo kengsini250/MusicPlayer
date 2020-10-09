@@ -2,33 +2,33 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
-  : QMainWindow(parent)
+  : QWidget(parent)
   , ui(new Ui::MainWindow)
 {
   ui->setupUi(this);
-  //setWindowFlag(Qt::FramelessWindowHint);
+  setWindowFlag(Qt::FramelessWindowHint);
 
   //browse
-  QString t = "https://github.com/kengsini250";
+  QString t = "https://www.google.co.jp/";
   ui->addressLineEdit->setText(t);
   ui->webEngineView->load(QUrl(t));
   connect(ui->goPushButton, &QPushButton::clicked, [this] {
       ui->webEngineView->load(QUrl(ui->addressLineEdit->text()));
-      });
-  connect(ui->webEngineView, &QWebEngineView::loadStarted, [this] {
-      ui->statusBar->showMessage("loading...");
-      });
-  connect(ui->webEngineView, &QWebEngineView::loadFinished, [this](bool end) {
+    });
+  connect(ui->webEngineView, &QWebEngineView::loadStarted, [] {
+      //ui->statusBar->showMessage("loading...");
+    });
+  connect(ui->webEngineView, &QWebEngineView::loadFinished, [](bool end) {
       if (end == true) {
-          ui->statusBar->showMessage("Finished");
-      }
-      });
+          //ui->statusBar->showMessage("Finished");
+        }
+    });
+
   //setting
   setting = new Setting;
-  connect(ui->actionSetting,&QAction::triggered,[this]{setting->show();setting->activateWindow();});
-  connect(setting,&Setting::backgroundImgPath,[this](const QString& p){backgroundImg = p;update();});
 
-  Qss qss("qss/qss.qss");
+  //Qss
+  Qss qss(":/qss/qss.qss");
   setStyleSheet(qss.getQss());
   setWindowIcon(QIcon(":/pic/mainIcon.jpg"));
 
@@ -62,13 +62,6 @@ MainWindow::MainWindow(QWidget *parent)
   //listview clear selection
   connect(ui->_AllMusic,&QListView::clicked,ui->_MyList,&QListView::clearSelection);
   connect(ui->_MyList,&QListView::clicked,ui->_AllMusic,&QListView::clearSelection);
-
-  //open folder
-  connect(ui->actionOpen, &QAction::triggered, [this] {
-      openDir(this, &path);
-      ui->_AddMusic->setEnabled(1);
-      updateListUI();
-      });
 
   //update folder
   connect(ui->_AllMusic,&QListView::doubleClicked,[this](QModelIndex index){
@@ -111,7 +104,7 @@ MainWindow::MainWindow(QWidget *parent)
     music.setMedia(QUrl::fromLocalFile(p));
     music.play();
     list.updatePlaying(index);
-    statusBar()->showMessage(name);
+    //statusBar()->showMessage(name);
   });
 
   //change state
@@ -137,7 +130,7 @@ MainWindow::MainWindow(QWidget *parent)
           qDebug()<<p;
           music.setMedia(QUrl::fromLocalFile(p));
           music.play();
-          statusBar()->showMessage(temp->getMusicName());
+          //statusBar()->showMessage(temp->getMusicName());
         }
     });
 
@@ -148,24 +141,16 @@ MainWindow::MainWindow(QWidget *parent)
           QString p = temp->getMusicPath();
           music.setMedia(QUrl::fromLocalFile(p));
           music.play();
-          statusBar()->showMessage(temp->getMusicName());
+          //statusBar()->showMessage(temp->getMusicName());
         }
     });
 
-  //save list
-  connect(ui->actionSave,&QAction::triggered,[&]{
-      saveload.save(list);
-    });
-  //load list
-  connect(ui->actionLoad,&QAction::triggered,[&]{
-      list = saveload.load();
-      updateMyList();
-    });
 }
 
 MainWindow::~MainWindow()
 {
   delete ui;
+  delete setting;
 }
 
 void MainWindow::updateListUI()
@@ -214,40 +199,31 @@ void MainWindow::paintEvent(QPaintEvent *)
   painter.drawPixmap(rect(),img);
 }
 
-
-#ifdef MOVE
-
-void MainWindow::mousePressEvent(QMouseEvent* event)
+//open folder
+void MainWindow::openDir(const QDir &p)
 {
-    _w = width();
-    _h = height();
-    if (event->button() == Qt::LeftButton)
-    {
-        move = 1;
-        oldpos = event->globalPos();
-    }
+  path = p;
+  ui->_AddMusic->setEnabled(1);
+  updateListUI();
 }
 
-void MainWindow::mouseMoveEvent(QMouseEvent* event)
+//open setting dialog
+void MainWindow::settingDialog()
 {
-    if ((event->buttons() & Qt::LeftButton) && move)
-    {
-        int __w = width(), __h = height();
-        if (__w == _w && __h == _h) {
-            newpos = event->globalPos();
-            auto p = newpos - oldpos;
-            oldpos = newpos;
-            setGeometry(pos().x() + p.x(), pos().y() + p.y(), width(), height());
-        }
-    }
+  setting->show();
+  setting->activateWindow();
+  connect(setting,&Setting::backgroundImgPath,[this](const QString& p){backgroundImg = p;update();});
 }
 
-void MainWindow::mouseReleaseEvent(QMouseEvent* event)
+//save
+void MainWindow::save()
 {
-    if ((event->buttons() & Qt::LeftButton) && move)
-    {
-        move = false;
-    }
+  saveload.save(list);
 }
 
-#endif
+//load
+void MainWindow::load()
+{
+  list = saveload.load();
+  updateMyList();
+}
