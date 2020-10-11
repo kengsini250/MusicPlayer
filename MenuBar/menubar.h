@@ -2,6 +2,9 @@
 #define MENUBAR_H
 
 #include <QDebug>
+#include <QPainter>
+#include <QTimer>
+#include <QRandomGenerator>
 
 #include <QWidget>
 #include <QMouseEvent>
@@ -12,32 +15,38 @@
 #include "menu.h"
 #include "menubutton.h"
 
-class MenuBar : public QWidget
+class MenuBar final: public QWidget
 {
-	Q_OBJECT
+  Q_OBJECT
 
 public:
-	explicit MenuBar(int w = 1200,QWidget *parent = nullptr);
-	~MenuBar();
+  explicit MenuBar(int w = 1200,QWidget *parent = nullptr);
+  ~MenuBar();
 
 private:
-	bool move = false;
-	QPoint oldpos, newpos;
+  //----------------------
+  bool move = false;
+  QPoint oldpos, newpos;
+  bool Animation = true;
+  QTimer* timer;
+  const int Rmax=255,Rmin=245,Gmax=249,Gmin=127,Bmax=196,Bmin=74;
+  int R1=Rmax,R2=Rmin,G1=Gmax,G2=Gmin,B1=Bmax,B2=Bmin;
+  //----------------------
 
-	Menu* menu;
-	MenuButton* button;
-	int w = 1200;
+  Menu* menu;
+  MenuButton* button;
+  int w = 1200;
 protected:
-	void mousePressEvent(QMouseEvent* event)override;
-	void mouseMoveEvent(QMouseEvent* event)override;
-	void mouseReleaseEvent(QMouseEvent* event)override;
-
+  void mousePressEvent(QMouseEvent* event)override;
+  void mouseMoveEvent(QMouseEvent* event)override;
+  void mouseReleaseEvent(QMouseEvent* event)override;
+  void paintEvent(QPaintEvent *event);
 Q_SIGNALS:
-	void newPos(const QPoint&);
-	void sendExit();
-	void sendDir(const QDir& d);
-	void sendSave();
-	void sendLoad();
-	void sendSetting();
+  void newPos(const QPoint&);
+  void sendExit();
+  void sendDir(const QDir& d);
+  void sendSave();
+  void sendLoad();
+  void sendSetting();
 };
 #endif // MENUBAR_H
