@@ -13,11 +13,13 @@ MenuButton::MenuButton(int h,QWidget *parent)
   max_->setStyleSheet("image:url(:/pic/max.png);border-radius:5px;");
   max_->setMinimumSize(h,h);
   max_->setMaximumSize(h,h);
+  connect(max_,&QPushButton::clicked,[this]{emit sendMax();});
 
   min_ = new QPushButton(parent);
   min_->setStyleSheet("image:url(:/pic/min.png);border-radius:5px;");
   min_->setMinimumSize(h,h);
   min_->setMaximumSize(h,h);
+  connect(min_,&QPushButton::clicked,[this]{emit sendMin();});
 }
 
 MenuButton::~MenuButton()

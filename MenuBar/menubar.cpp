@@ -4,13 +4,11 @@ MenuBar::MenuBar(int _w,QWidget *parent):QWidget(parent),w(_w)
 {
   setAutoFillBackground(true);
   setMinimumWidth(w);
-  //setMinimumWidth(500);
-  int h=20;
+  int h=25;
 
   setWindowFlag(Qt::FramelessWindowHint);
   setMinimumHeight(h);
   setMaximumHeight(h);
-  //setStyleSheet("background-color:green;");
 
   QHBoxLayout* layout = new QHBoxLayout;
   layout->setMargin(0);
@@ -24,8 +22,8 @@ MenuBar::MenuBar(int _w,QWidget *parent):QWidget(parent),w(_w)
   connect(menu, &Menu::sendSetting, [this] {emit sendSetting(); });
   layout->addWidget(menu);
 
-  //  QSpacerItem* s = new QSpacerItem(1000,h);
-  //  layout->addSpacerItem(s);
+//  QSpacerItem* s = new QSpacerItem(1000,h);
+//  layout->addSpacerItem(s);
 
   //button
   button = new MenuButton(h,this);
@@ -33,6 +31,8 @@ MenuBar::MenuBar(int _w,QWidget *parent):QWidget(parent),w(_w)
   layout->addWidget(button->getMenuButton_max());
   layout->addWidget(button->getMenuButton_close());
   connect(button, &MenuButton::sendExit, [this] {emit sendExit(); });
+  connect(button, &MenuButton::sendMin, [this] {emit sendMin(); });
+  connect(button, &MenuButton::sendMax, [this] {emit sendMax(); });
 
   setLayout(layout);
 
@@ -51,28 +51,30 @@ void MenuBar::mousePressEvent(QMouseEvent* event)
 {
   if (event->button() == Qt::LeftButton)
     {
-      move = 1;
+      moveFlag = true;
       oldpos = event->globalPos();
     }
+  QWidget::mousePressEvent(event);
 }
 
 void MenuBar::mouseMoveEvent(QMouseEvent* event)
 {
-  if ((event->buttons() & Qt::LeftButton) && move)
+  if ((event->buttons() & Qt::LeftButton) && moveFlag)
     {
       newpos = event->globalPos();
-      auto p = newpos - oldpos;
+      emit newPos(newpos - oldpos);
       oldpos = newpos;
-      emit newPos(p);
     }
+  QWidget::mouseMoveEvent(event);
 }
 
 void MenuBar::mouseReleaseEvent(QMouseEvent* event)
 {
-  if ((event->buttons() & Qt::LeftButton) && move)
+  if ((event->buttons() == Qt::LeftButton) && moveFlag)
     {
-      move = false;
+      moveFlag = false;
     }
+  QWidget::mouseReleaseEvent(event);
 }
 
 void MenuBar::paintEvent(QPaintEvent *event)

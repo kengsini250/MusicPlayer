@@ -20,6 +20,8 @@ private:
   QPushButton* min_;
 Q_SIGNALS:
   void sendExit();
+  void sendMin();
+  void sendMax();
 };
 
 #endif

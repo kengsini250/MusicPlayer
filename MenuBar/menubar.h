@@ -25,7 +25,7 @@ public:
 
 private:
   //----------------------
-  bool move = false;
+  bool moveFlag = false;
   QPoint oldpos, newpos;
   bool Animation = true;
   QTimer* timer;
@@ -35,12 +35,12 @@ private:
 
   Menu* menu;
   MenuButton* button;
-  int w = 1200;
+  int w;
 protected:
   void mousePressEvent(QMouseEvent* event)override;
   void mouseMoveEvent(QMouseEvent* event)override;
   void mouseReleaseEvent(QMouseEvent* event)override;
-  void paintEvent(QPaintEvent *event);
+  void paintEvent(QPaintEvent *event)override;
 Q_SIGNALS:
   void newPos(const QPoint&);
   void sendExit();
@@ -48,5 +48,8 @@ Q_SIGNALS:
   void sendSave();
   void sendLoad();
   void sendSetting();
+
+  void sendMin();
+  void sendMax();
 };
 #endif // MENUBAR_H

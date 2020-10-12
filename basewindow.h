@@ -6,7 +6,10 @@
 #include <QPoint>
 #include <QMouseEvent>
 
-#include "MenuBar\menubar.h"
+#ifdef Q_OS_LINUX
+#endif
+
+#include "MenuBar/menubar.h"
 #include "mainwindow.h"
 
 class BaseWindow : public QWidget
@@ -19,8 +22,9 @@ public:
 private:
 	MenuBar* menubar;
 	MainWindow* mainwindow;
+
+    bool showMaxFlag = false;
 protected:
-	void mousePressEvent(QMouseEvent* event)override;
 };
 
 #endif

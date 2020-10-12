@@ -4,7 +4,7 @@ Menu::Menu(int h,QWidget *parent)
   :QWidget(parent)
 {
   menubar = new QMenuBar(parent);
-  menubar->setMinimumHeight(h);
+  menubar->setMinimumSize(200,h);
   menubar->setMaximumHeight(h);
   file_ = new QMenu("File");
   setting_ = new QMenu("Setting");
