@@ -24,7 +24,9 @@ BaseWindow::BaseWindow(QWidget *parent)
 
     //position
     connect(menubar, &MenuBar::newPos, [this](const QPoint& p) {
+        qDebug()<<pos();
         move(pos()+p);
+        qDebug()<<pos();
     });
 
     //menubar

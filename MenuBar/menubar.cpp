@@ -53,6 +53,7 @@ void MenuBar::mousePressEvent(QMouseEvent* event)
     {
       moveFlag = true;
       oldpos = event->globalPos();
+      qDebug()<<"old pos : "<<oldpos;
     }
   QWidget::mousePressEvent(event);
 }
@@ -62,6 +63,7 @@ void MenuBar::mouseMoveEvent(QMouseEvent* event)
   if ((event->buttons() & Qt::LeftButton) && moveFlag)
     {
       newpos = event->globalPos();
+      qDebug()<<"new pos : "<<newpos;
       emit newPos(newpos - oldpos);
       oldpos = newpos;
     }

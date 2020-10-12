@@ -23,7 +23,6 @@ private:
 	MainWindow* mainwindow;
 
     bool showMaxFlag = false;
-protected:
 };
 
 #endif
