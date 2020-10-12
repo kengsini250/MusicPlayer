@@ -3,7 +3,7 @@
 BaseWindow::BaseWindow(QWidget *parent)
     : QWidget(parent)
 {
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_WIN
     setWindowFlag(Qt::FramelessWindowHint);
 #endif
 //    setMouseTracking(true);

@@ -1,13 +1,12 @@
 #ifndef BASEWINDOW_H
 #define BASEWINDOW_H
 
+#include <QtGlobal>
+
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QPoint>
 #include <QMouseEvent>
-
-#ifdef Q_OS_LINUX
-#endif
 
 #include "MenuBar/menubar.h"
 #include "mainwindow.h"
