@@ -34,7 +34,9 @@ BaseWindow::BaseWindow(QWidget *parent)
     connect(menubar,&MenuBar::sendSave,mainwindow,&MainWindow::save);
     connect(menubar,&MenuBar::sendLoad,mainwindow,&MainWindow::load);
     connect(menubar,&MenuBar::sendSetting, mainwindow, &MainWindow::settingDialog);
+    connect(menubar,&MenuBar::sendShowHide,mainwindow,&MainWindow::showhideWeb);
 
+#ifdef Q_OS_LINUX
     connect(menubar,&MenuBar::sendExit, this, &QWidget::close);
     connect(menubar,&MenuBar::sendMin, this, &QWidget::showMinimized);
     connect(menubar,&MenuBar::sendMax,[this]{
@@ -46,6 +48,7 @@ BaseWindow::BaseWindow(QWidget *parent)
             showNormal();
         }
     });
+#endif
 }
 
 BaseWindow::~BaseWindow()

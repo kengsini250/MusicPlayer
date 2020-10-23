@@ -215,6 +215,24 @@ void MainWindow::settingDialog()
   connect(setting,&Setting::backgroundImgPath,[this](const QString& p){backgroundImg = p;update();});
 }
 
+void MainWindow::showhideWeb()
+{
+    if(!HideWebViewFlag)
+    {
+        ui->webEngineView->hide();
+        ui->addressLineEdit->hide();
+        ui->goPushButton->hide();
+
+
+    }else{
+        ui->webEngineView->show();
+        ui->addressLineEdit->show();
+        ui->goPushButton->show();
+    }
+
+    HideWebViewFlag = !HideWebViewFlag;
+}
+
 //save
 void MainWindow::save()
 {

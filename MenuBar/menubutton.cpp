@@ -3,6 +3,8 @@
 MenuButton::MenuButton(int h,QWidget *parent)
   : QObject(parent)
 {
+
+#ifdef Q_OS_LINUX
   close_ = new QPushButton(parent);
   close_->setStyleSheet("image:url(:/pic/exit.png);border-radius:5px;");
   close_->setMinimumSize(h,h);
@@ -20,12 +22,15 @@ MenuButton::MenuButton(int h,QWidget *parent)
   min_->setMinimumSize(h,h);
   min_->setMaximumSize(h,h);
   connect(min_,&QPushButton::clicked,[this]{emit sendMin();});
+#endif
+
 }
 
 MenuButton::~MenuButton()
 {
 }
 
+#ifdef Q_OS_LINUX
 QPushButton* MenuButton::getMenuButton_close()
 {
   return close_;
@@ -40,3 +45,4 @@ QPushButton *MenuButton::getMenuButton_min()
 {
   return min_;
 }
+#endif

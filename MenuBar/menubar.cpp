@@ -18,8 +18,9 @@ MenuBar::MenuBar(int _w,QWidget *parent):QWidget(parent),w(_w)
   connect(menu,&Menu::sendDir,[this](const QDir& d){emit sendDir(d);});
   connect(menu,&Menu::sendSave,[this]{emit sendSave();});
   connect(menu,&Menu::sendLoad,[this]{emit sendLoad();});
-  connect(menu, &Menu::sendExit, [this] {emit sendExit(); });
-  connect(menu, &Menu::sendSetting, [this] {emit sendSetting(); });
+  connect(menu,&Menu::sendExit,[this] {emit sendExit();});
+  connect(menu,&Menu::sendSetting,[this] {emit sendSetting();});
+  connect(menu,&Menu::sendShowHide,[this]{emit sendShowHide();});
   layout->addWidget(menu);
 
 //  QSpacerItem* s = new QSpacerItem(1000,h);

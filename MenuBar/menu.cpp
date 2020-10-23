@@ -41,6 +41,9 @@ Menu::Menu(int h,QWidget *parent)
   actionSetting = new QAction("Property");
   setting_->addAction(actionSetting);
   connect(actionSetting,&QAction::triggered,[this]{emit sendSetting();});
+  actionShowHide = new QAction("Show/Hide");
+  setting_->addAction(actionShowHide);
+  connect(actionShowHide,&QAction::triggered,[this]{emit sendShowHide();});
 }
 
 Menu::~Menu()

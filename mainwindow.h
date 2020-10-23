@@ -48,6 +48,7 @@ private:
     SaveLoad saveload;
     Setting* setting;
 
+    bool HideWebViewFlag = false;
 protected:
     void paintEvent(QPaintEvent *e);
 
@@ -56,5 +57,6 @@ public slots:
     void save();
     void load();
     void settingDialog();
+    void showhideWeb();
 };
 #endif // MAINWINDOW_H

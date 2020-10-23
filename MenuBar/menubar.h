@@ -48,6 +48,7 @@ Q_SIGNALS:
   void sendSave();
   void sendLoad();
   void sendSetting();
+  void sendShowHide();
 
   void sendMin();
   void sendMax();
