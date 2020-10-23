@@ -159,14 +159,16 @@ void MainWindow::updateListUI()
   allFile.removeOne(".");
   QStandardItemModel* fileItem = new QStandardItemModel(this);
   auto p = allFile.begin();
-  QString fileInfo = path.path()+"/"+*p;
-  while(p != allFile.end())
-    {
+  while (p != allFile.end())
+  {
+      QString fileInfo = path.path()+"/"+*p;
       QFileInfo currTarget(fileInfo);
-      if(currTarget.isDir()||(*p).contains(".mp3")||(*p).contains(".wav")||(*p).contains(".flac")){
+      if (currTarget.isDir() ||
+          ((*p).right(4) == ".mp3") || ((*p).right(4) == ".wav") || ((*p).right(5) == ".flac")
+          ) {
           QStandardItem* file = new QStandardItem(*p);
           fileItem->appendRow(file);
-        }
+      }
       p++;
     }
   ui->_AllMusic->setModel(fileItem);
