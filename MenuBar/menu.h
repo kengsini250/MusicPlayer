@@ -11,28 +11,28 @@ class Menu : public QWidget
 {
 	Q_OBJECT
 public:
-	explicit Menu(int h,QWidget* parent = nullptr);
-	~Menu();
-	QMenuBar* getMenuBar();
+    explicit Menu(int h,QWidget* parent = nullptr);
+    ~Menu();
+    QMenuBar* getMenuBar();
 
 private:
-	QMenuBar* menubar;
-	QMenu* file_;
-	QAction* actionOpen;
-	QAction* actionSave;
-	QAction* actionLoad;
-	QAction* actionExit;
+    QMenuBar* menubar;
+    QMenu* file_;
+    QAction* actionOpen;
+    QAction* actionSave;
+    QAction* actionLoad;
+    QAction* actionExit;
 
-	QMenu* setting_;
-	QAction* actionSetting;
+    QMenu* setting_;
+    QAction* actionSetting;
     QAction* actionShowHide;
 
 Q_SIGNALS:
-	void sendExit();
-	void sendDir(const QDir& d);
-	void sendSave();
-	void sendLoad();
-	void sendSetting();
+    void sendExit();
+    void sendDir(const QDir& d);
+    void sendSave();
+    void sendLoad();
+    void sendSetting();
     void sendShowHide();
 };
 

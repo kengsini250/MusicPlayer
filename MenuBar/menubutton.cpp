@@ -4,7 +4,7 @@ MenuButton::MenuButton(int h,QWidget *parent)
   : QObject(parent)
 {
 
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_WINDOWS
   close_ = new QPushButton(parent);
   close_->setStyleSheet("image:url(:/pic/exit.png);border-radius:5px;");
   close_->setMinimumSize(h,h);
@@ -30,7 +30,7 @@ MenuButton::~MenuButton()
 {
 }
 
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_WINDOWS
 QPushButton* MenuButton::getMenuButton_close()
 {
   return close_;

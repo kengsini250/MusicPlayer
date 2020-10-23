@@ -27,6 +27,7 @@ MenuBar::MenuBar(int _w,QWidget *parent):QWidget(parent),w(_w)
 //  layout->addSpacerItem(s);
 
   //button
+#ifdef Q_OS_WINDOWS
   button = new MenuButton(h,this);
   layout->addWidget(button->getMenuButton_min());
   layout->addWidget(button->getMenuButton_max());
@@ -34,6 +35,7 @@ MenuBar::MenuBar(int _w,QWidget *parent):QWidget(parent),w(_w)
   connect(button, &MenuButton::sendExit, [this] {emit sendExit(); });
   connect(button, &MenuButton::sendMin, [this] {emit sendMin(); });
   connect(button, &MenuButton::sendMax, [this] {emit sendMax(); });
+#endif
 
   setLayout(layout);
 

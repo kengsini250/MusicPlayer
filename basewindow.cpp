@@ -35,9 +35,9 @@ BaseWindow::BaseWindow(QWidget *parent)
     connect(menubar,&MenuBar::sendLoad,mainwindow,&MainWindow::load);
     connect(menubar,&MenuBar::sendSetting, mainwindow, &MainWindow::settingDialog);
     connect(menubar,&MenuBar::sendShowHide,mainwindow,&MainWindow::showhideWeb);
-
-#ifdef Q_OS_LINUX
     connect(menubar,&MenuBar::sendExit, this, &QWidget::close);
+
+#ifdef Q_OS_WINDOWS
     connect(menubar,&MenuBar::sendMin, this, &QWidget::showMinimized);
     connect(menubar,&MenuBar::sendMax,[this]{
         if(false == showMaxFlag){
