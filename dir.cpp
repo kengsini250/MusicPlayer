@@ -1,16 +1,10 @@
 #include "dir.h"
 
+QStringList musicdir = QStandardPaths::standardLocations(QStandardPaths::MusicLocation);
+
 void openDir(QWidget* p,QDir* path)
 {
-    QString d = QFileDialog::getExistingDirectory(
-        p, "Open Music Dir",
-        ".",
-        QFileDialog::ShowDirsOnly
-        | QFileDialog::DontResolveSymlinks);
-    if (d.isEmpty())
-        path->setPath(".");
-    else
-        path->setPath(d);
+    *path = openDir(p);
 }
 
 void addFolder(QDir* path, QString _path, MusicList* list)
@@ -47,7 +41,6 @@ void addFolder(QDir* path, QString _path, MusicList* list)
     QString b = path->path() + "/..";
     path->setPath(b);
     path->setPath(path->absolutePath());
-
 }
 
 QDir openDir(QWidget *p)
@@ -59,7 +52,7 @@ QDir openDir(QWidget *p)
       QFileDialog::ShowDirsOnly
       | QFileDialog::DontResolveSymlinks);
   if (d.isEmpty())
-      path.setPath(".");
+      path.setPath(musicdir[0]);
   else
       path.setPath(d);
 

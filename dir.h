@@ -7,6 +7,7 @@
 #include <QStringList>
 #include <QMainWindow>
 #include <QFileInfo>
+#include <QStandardPaths>
 
 #include "musiclist.h"
 
