@@ -26,6 +26,7 @@ private:
     QMenu* setting_;
     QAction* actionSetting;
     QAction* actionShowHide;
+    QAction* actionAnimation;
 
 Q_SIGNALS:
     void sendExit();
@@ -34,6 +35,7 @@ Q_SIGNALS:
     void sendLoad();
     void sendSetting();
     void sendShowHide();
+    void setAnimation();
 };
 
 #endif

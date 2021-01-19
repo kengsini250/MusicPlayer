@@ -4,10 +4,10 @@ Menu::Menu(int h,QWidget *parent)
   :QWidget(parent)
 {
   menubar = new QMenuBar(parent);
-  menubar->setMinimumSize(200,h);
-  menubar->setMaximumHeight(h);
+
   file_ = new QMenu("File");
   setting_ = new QMenu("Setting");
+
   menubar->addMenu(file_);
   menubar->addMenu(setting_);
 
@@ -41,9 +41,14 @@ Menu::Menu(int h,QWidget *parent)
   actionSetting = new QAction("Property");
   setting_->addAction(actionSetting);
   connect(actionSetting,&QAction::triggered,[this]{emit sendSetting();});
+
   actionShowHide = new QAction("Show/Hide");
   setting_->addAction(actionShowHide);
   connect(actionShowHide,&QAction::triggered,[this]{emit sendShowHide();});
+
+  actionAnimation = new QAction("Animation");
+  setting_->addAction(actionAnimation);
+  connect(actionAnimation,&QAction::triggered,[this]{emit setAnimation();});
 }
 
 Menu::~Menu()
