@@ -29,8 +29,6 @@ private:
   QPoint oldpos, newpos;
   bool Animation = true;
   QTimer* timer;
-  const int Rmax=255,Rmin=245,Gmax=249,Gmin=127,Bmax=196,Bmin=74;
-  int R1=Rmax,R2=Rmin,G1=Gmax,G2=Gmin,B1=Bmax,B2=Bmin;
   //----------------------
 
   Menu* menu;

@@ -1,34 +1,33 @@
 #include "menubar.h"
 
+#define H 20
+
 MenuBar::MenuBar(int _w,QWidget *parent):QWidget(parent),w(_w)
 {
   setAutoFillBackground(true);
   setMinimumWidth(w);
-  int h=25;
 
   setWindowFlag(Qt::FramelessWindowHint);
-  setMinimumHeight(h);
-  setMaximumHeight(h);
+  setMinimumHeight(H);
+  setMaximumHeight(H);
 
   QHBoxLayout* layout = new QHBoxLayout;
   layout->setMargin(0);
 
   //menu
-  menu = new Menu(h,this);
-  connect(menu,&Menu::sendDir,[this](const QDir& d){emit sendDir(d);});
-  connect(menu,&Menu::sendSave,[this]{emit sendSave();});
-  connect(menu,&Menu::sendLoad,[this]{emit sendLoad();});
-  connect(menu,&Menu::sendExit,[this] {emit sendExit();});
-  connect(menu,&Menu::sendSetting,[this] {emit sendSetting();});
-  connect(menu,&Menu::sendShowHide,[this]{emit sendShowHide();});
+  menu = new Menu(H,this);
+  connect(menu, &Menu::sendDir, [this](const QDir& d) {emit sendDir(d); });
+  connect(menu, &Menu::sendSave, [this] {emit sendSave(); });
+  connect(menu, &Menu::sendLoad, [this] {emit sendLoad(); });
+  connect(menu, &Menu::sendExit, [this] {emit sendExit(); });
+  connect(menu, &Menu::sendSetting, [this] {emit sendSetting(); });
+  connect(menu, &Menu::sendShowHide, [this] {emit sendShowHide(); });
+  connect(menu, &Menu::setAnimation, [this] {Animation = !Animation; });
   layout->addWidget(menu);
-
-//  QSpacerItem* s = new QSpacerItem(1000,h);
-//  layout->addSpacerItem(s);
 
   //button
 #ifdef Q_OS_WINDOWS
-  button = new MenuButton(h,this);
+  button = new MenuButton(H,this);
   layout->addWidget(button->getMenuButton_min());
   layout->addWidget(button->getMenuButton_max());
   layout->addWidget(button->getMenuButton_close());
@@ -40,7 +39,7 @@ MenuBar::MenuBar(int _w,QWidget *parent):QWidget(parent),w(_w)
   setLayout(layout);
 
   timer = new QTimer;
-  timer->start(100);
+  timer->start(500);
   connect(timer,&QTimer::timeout,[this]{update();});
 }
 
@@ -56,7 +55,6 @@ void MenuBar::mousePressEvent(QMouseEvent* event)
     {
       moveFlag = true;
       oldpos = event->globalPos();
-      qDebug()<<"old pos : "<<oldpos;
     }
   QWidget::mousePressEvent(event);
 }
@@ -66,7 +64,6 @@ void MenuBar::mouseMoveEvent(QMouseEvent* event)
   if ((event->buttons() & Qt::LeftButton) && moveFlag)
     {
       newpos = event->globalPos();
-      qDebug()<<"new pos : "<<newpos;
       emit newPos(newpos - oldpos);
       oldpos = newpos;
     }
@@ -90,13 +87,8 @@ void MenuBar::paintEvent(QPaintEvent *event)
       p.setPen(Qt::NoPen);
       QLinearGradient linear(QPointF(0, 10), QPointF(w, 10));
 
-//      linear.setColorAt(0,QColor(QRandomGenerator::global()->bounded(255), QRandomGenerator::global()->bounded(255), QRandomGenerator::global()->bounded(255)));
-//      linear.setColorAt(1,QColor(QRandomGenerator::global()->bounded(255), QRandomGenerator::global()->bounded(255), QRandomGenerator::global()->bounded(255)));
-      linear.setColorAt(0,QColor(R1, G1--, B1--));
-      linear.setColorAt(1,QColor(R1, G2++, B2++));
-      if(G1 == Gmin){
-          G1=Gmax;G2=Gmin;B1=Bmax;B2=Bmin;
-        }
+      linear.setColorAt(0,QColor(QRandomGenerator::global()->bounded(255), QRandomGenerator::global()->bounded(255), QRandomGenerator::global()->bounded(255)));
+      linear.setColorAt(1,QColor(QRandomGenerator::global()->bounded(255), QRandomGenerator::global()->bounded(255), QRandomGenerator::global()->bounded(255)));
 
       p.setBrush(linear);
       p.drawRect(rect());
